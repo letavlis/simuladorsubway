@@ -1,9 +1,12 @@
 package ifpr.pgua.eic.simuladorsubway.repositories;
 
 import ifpr.pgua.eic.simuladorsubway.models.Bebida;
+import ifpr.pgua.eic.simuladorsubway.models.Ingrediente;
 import ifpr.pgua.eic.simuladorsubway.repositories.interfaces.BebidaRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.util.Optional;
 
 public class BebidaRepositoryImpl implements BebidaRepository {
 
@@ -37,6 +40,22 @@ public class BebidaRepositoryImpl implements BebidaRepository {
         }
 
         return false;
+    }
+    @Override
+    public Bebida buscarIngrediente(String nome, double valor){
+        Optional<Bebida> ret = bebidas.stream()
+                .filter((b -> b.getNome().equals(nome)))
+                .findFirst();
+        Optional<Bebida> ret2 = bebidas.stream()
+                .filter((b -> b.getValor()==valor))
+                .findFirst();
+        if(ret.isPresent()){
+            return ret.get();
+        }
+        else if(ret.isPresent() && ret2.isPresent()){
+            return ret2.get();
+        }
+        return null;
     }
 
     @Override

@@ -8,6 +8,8 @@ public interface ClienteRepository {
     boolean adicionar(Cliente cliente);
     boolean editar(int id, Cliente cliente);
 
+    Cliente buscarCliente(String nome, String telefone, String email);
+
     ObservableList<Cliente> lista();
 
 

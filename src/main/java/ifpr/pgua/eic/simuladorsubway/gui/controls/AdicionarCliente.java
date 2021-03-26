@@ -77,6 +77,11 @@ public class AdicionarCliente {
             alert.showAndWait();
             return;
         }
+        if(clienteRepository.buscarCliente(nome, telefone, email) != null){
+            Alert alert = new Alert(Alert.AlertType.ERROR,"Cliente já existe");
+            alert.showAndWait();
+            return;
+        }
 
 
 

@@ -7,5 +7,8 @@ public interface IngredienteRepository {
 
     boolean adicionar(Ingrediente ingrediente);
     boolean editar(int id, Ingrediente ingredienteAntigo);
+
+    Ingrediente buscarIngrediente(String nome, String descricao, double valor);
+
     ObservableList<Ingrediente> lista();
 }

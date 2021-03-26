@@ -1,11 +1,13 @@
 package ifpr.pgua.eic.simuladorsubway.repositories;
 
+import ifpr.pgua.eic.simuladorsubway.models.Cliente;
 import ifpr.pgua.eic.simuladorsubway.models.Ingrediente;
 import ifpr.pgua.eic.simuladorsubway.repositories.interfaces.IngredienteRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class IngredienteRepositoryImpl implements IngredienteRepository {
 
@@ -35,6 +37,28 @@ public class IngredienteRepositoryImpl implements IngredienteRepository {
         }
 
         return false;
+    }
+    @Override
+    public Ingrediente buscarIngrediente(String nome, String descricao, double valor){
+        Optional<Ingrediente> ret = ingredientes.stream()
+                .filter((i -> i.getNome().equals(nome)))
+                .findFirst();
+        Optional<Ingrediente> ret1 = ingredientes.stream()
+                .filter((i -> i.getDescricao().equals(descricao)))
+                .findFirst();
+        Optional<Ingrediente> ret2 = ingredientes.stream()
+                .filter((i -> i.getValor()==valor))
+                .findFirst();
+        if(ret.isPresent()){
+            return ret.get();
+        }
+        else if( ret1.isPresent()){
+            return ret1.get();
+        }
+        else if( ret2.isPresent()){
+            return ret2.get();
+        }
+        return null;
     }
 
     public ObservableList<Ingrediente> lista(){

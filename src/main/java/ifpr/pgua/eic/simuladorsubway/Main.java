@@ -63,11 +63,11 @@ public class Main extends Application {
 
     private static void criaFakes(){
 
-        ingredienteRepository.adicionar(new Ingrediente("Tomate","",0.5));
-        ingredienteRepository.adicionar(new Ingrediente("Pão","",1.0));
-        ingredienteRepository.adicionar(new Ingrediente("Queijo","",0.8));
-        ingredienteRepository.adicionar(new Ingrediente("Presunto","",0.75));
-        ingredienteRepository.adicionar(new Ingrediente("Bacon","",1.1));
+        ingredienteRepository.adicionar(new Ingrediente("Tomate","duas fatias de tomate",0.5));
+        ingredienteRepository.adicionar(new Ingrediente("Pão","um pao",1.0));
+        ingredienteRepository.adicionar(new Ingrediente("Queijo","um queijo",0.8));
+        ingredienteRepository.adicionar(new Ingrediente("Presunto","um presunto",0.75));
+        ingredienteRepository.adicionar(new Ingrediente("Bacon","cinquenta gramas de bacon",1.1));
 
         bebidaRepository.adicionar(new Bebida("Suco de Limão",1.0));
         bebidaRepository.adicionar(new Bebida("Suco de Laranja",1.5));
